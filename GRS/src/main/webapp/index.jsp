@@ -3,225 +3,234 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram - Colourful Experience</title>
+    <title>JioHotstar - Colourful Premium</title>
     <style>
         /* Base Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            /* Iconic Instagram gradient mesh */
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-            background-size: 300% 300%;
-            animation: gradientMotion 10s ease infinite;
+            /* Animated multi-colour gradient theme combining Jio Blue with festive energetic hues */
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364, #ff007f, #00d2ff);
+            background-size: 400% 400%;
+            animation: gradientShift 12s ease infinite;
+            color: #ffffff;
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
             overflow-x: hidden;
         }
 
-        /* Ambient background movement effect */
-        @keyframes gradientMotion {
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Glassmorphism Container Card */
-        .login-card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            padding: 40px 35px;
+        /* Dark overlay for rich contrast and text readability */
+        .scrim-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            max-width: 400px;
-            border-radius: 16px;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
-            text-align: center;
-            color: #ffffff;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
+            z-index: 1;
         }
 
-        /* Instagram Logo Text Styling */
+        /* Navigation Bar */
+        header {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 6%;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
         .brand-logo {
-            font-size: 3rem;
-            font-weight: 500;
-            margin-bottom: 30px;
-            letter-spacing: 1px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-            /* Fallback font styling to resemble standard calligraphy logo */
-            font-family: 'Georgia', serif;
-            font-style: italic;
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        /* Input Fields styling */
-        .input-group {
-            margin-bottom: 16px;
+        /* Dual brand dynamic text coloring */
+        .brand-logo .jio { color: #0070f3; text-shadow: 0 0 10px rgba(0, 112, 243, 0.6); }
+        .brand-logo .hotstar { color: #ffcc00; text-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
         }
 
-        .input-group input {
-            width: 100%;
-            padding: 14px;
-            background: rgba(255, 255, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 8px;
-            color: #ffffff;
-            font-size: 0.95rem;
-            outline: none;
-            transition: all 0.3s ease;
-        }
-
-        .input-group input::placeholder {
+        .nav-links a {
             color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
         }
 
-        .input-group input:focus {
-            background: rgba(255, 255, 255, 0.3);
-            border-color: #ffffff;
-            box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+        .nav-links a:hover {
+            color: #ff007f;
         }
 
-        /* Login Button */
-        .login-btn {
-            width: 100%;
-            padding: 14px;
-            background: #ffffff;
-            color: #cc2366;
+        .subscribe-btn {
+            background: linear-gradient(90deg, #ff007f, #ffcc00);
+            color: #000000;
             border: none;
-            border-radius: 8px;
-            font-size: 1rem;
+            padding: 8px 20px;
+            border-radius: 20px;
             font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .login-btn:hover {
-            background: rgba(255, 255, 255, 0.9);
-            transform: translateY(-1px);
+        .subscribe-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
         }
 
-        .login-btn:active {
-            transform: translateY(1px);
-        }
-
-        /* Decorative Elements */
-        .divider {
-            display: flex;
-            align-items: center;
-            margin: 25px 0;
-            color: rgba(255, 255, 255, 0.6);
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        .divider::before, .divider::after {
-            content: "";
+        /* Hero Main Section */
+        .hero-section {
+            position: relative;
+            z-index: 10;
             flex: 1;
-            height: 1px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px 6%;
+            max-width: 800px;
+        }
+
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: max-content;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #ffffff, #ffcc00, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
+        }
+
+        /* Action Row */
+        .cta-group {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn-main {
+            background-color: #ffffff;
+            color: #000000;
+            border: none;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .btn-main:hover {
+            background-color: #ffcc00;
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover {
             background: rgba(255, 255, 255, 0.3);
         }
 
-        .divider span {
-            padding: 0 10px;
-        }
-
-        .fb-login {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            margin-bottom: 20px;
-        }
-
-        .fb-login:hover {
-            text-decoration: underline;
-        }
-
-        .forgot-password {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            font-size: 0.85rem;
-            display: inline-block;
-            margin-top: 10px;
-        }
-
-        .forgot-password:hover {
-            color: #ffffff;
-        }
-
-        /* Bottom Signup Prompt Box */
-        .signup-box {
-            margin-top: 20px;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            width: 100%;
-            max-width: 400px;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            color: #ffffff;
-            font-size: 0.95rem;
-        }
-
-        .signup-box a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 700;
-        }
-
-        .signup-box a:hover {
-            text-decoration: underline;
+        /* Responsive Breakpoints */
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 4%;
+            }
+            .nav-links {
+                display: none; /* Simplifies layout for mobile devices */
+            }
+            .hero-section h1 {
+                font-size: 2.3rem;
+            }
+            .hero-section p {
+                font-size: 1rem;
+            }
+            .cta-group {
+                flex-direction: column;
+            }
+            .btn-main, .btn-secondary {
+                width: 100%;
+                text-align: center;
+            }
         }
     </style>
 </head>
 <body>
 
-    <!-- Main Card Interface Box -->
-    <div class="login-card">
-        <div class="brand-logo">Instagram</div>
-        
-        <form onsubmit="event.preventDefault(); alert('Sign in attempt simulation active.');">
-            <div class="input-group">
-                <input type="text" placeholder="Phone number, username, or email" required>
-            </div>
-            <div class="input-group">
-                <input type="password" placeholder="Password" required>
-            </div>
-            
-            <button type="submit" class="login-btn">Log In</button>
-        </form>
+    <div class="scrim-overlay"></div>
 
-        <div class="divider">
-            <span>OR</span>
+    <header>
+        <div class="brand-logo">
+            <span class="jio">Jio</span><span class="hotstar">hotstar</span>
         </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><button class="subscribe-btn">Subscribe Now</button></li>
+        </ul>
+    </header>
 
-        <a href="#" class="fb-login">
-            <!-- Simplified inline SVG Facebook White Icon -->
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="#ffffff"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
-            Log in with Facebook
-        </a>
-
-        <a href="#" class="forgot-password">Forgot password?</a>
-    </div>
-
-    <!-- Secondary Callout Box -->
-    <div class="signup-box">
-        Don't have an account? <a href="#">Sign up</a>
-    </div>
+    <main class="hero-section">
+        <div class="badge">Combined Premium</div>
+        <h1>The Ultimate Entertainment Hub</h1>
+        <p>Stream live T20 cricket matches, blockbusters, regional titles, and exclusive global series. Everything you love, powered by India's fastest network partnership.</p>
+        
+        <div class="cta-group">
+            <button class="btn-main" onclick="alert('Redirecting to plans...')">Watch Free Trial</button>
+            <button class="btn-secondary" onclick="alert('Opening active plans...')">View Combo Plans</button>
+        </div>
+    </main>
 
 </body>
 </html>
