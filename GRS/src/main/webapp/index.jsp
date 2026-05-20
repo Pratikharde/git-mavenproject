@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix - Colourful Edition</title>
+    <title>JioHotstar - Colourful Premium</title>
     <style>
-        /* Reset and Base Styles */
+        /* Base Reset */
         * {
             margin: 0;
             padding: 0;
@@ -14,10 +14,10 @@
         }
 
         body {
-            /* Vibrant multi-colour gradient background */
-            background: linear-gradient(135deg, #ff007f, #7928ca, #0070f3, #00dfd8);
+            /* Animated multi-colour gradient theme combining Jio Blue with festive energetic hues */
+            background: linear-gradient(135deg, #0f2027, #203a43, #2c5364, #ff007f, #00d2ff);
             background-size: 400% 400%;
-            animation: gradientMove 15s ease infinite;
+            animation: gradientShift 12s ease infinite;
             color: #ffffff;
             min-height: 100vh;
             display: flex;
@@ -25,217 +25,212 @@
             overflow-x: hidden;
         }
 
-        /* Background Animation */
-        @keyframes gradientMove {
+        @keyframes gradientShift {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
         }
 
-        /* Overlay to ensure text readability */
-        .overlay {
+        /* Dark overlay for rich contrast and text readability */
+        .scrim-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.2);
+            background: radial-gradient(circle at center, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0.6) 100%);
             z-index: 1;
         }
 
-        /* Header Styles */
+        /* Navigation Bar */
         header {
             position: relative;
             z-index: 10;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 50px;
+            padding: 20px 6%;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .logo {
-            color: #ffffff;
-            font-size: 2.5rem;
-            font-weight: 900;
-            letter-spacing: -1px;
-            text-transform: uppercase;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        .brand-logo {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.5px;
         }
 
-        .nav-buttons {
+        /* Dual brand dynamic text coloring */
+        .brand-logo .jio { color: #0070f3; text-shadow: 0 0 10px rgba(0, 112, 243, 0.6); }
+        .brand-logo .hotstar { color: #ffcc00; text-shadow: 0 0 10px rgba(255, 204, 0, 0.6); }
+
+        .nav-links {
             display: flex;
-            gap: 20px;
+            list-style: none;
+            gap: 25px;
+            align-items: center;
         }
 
-        .lang-btn {
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            padding: 6px 16px;
-            border-radius: 4px;
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
             font-weight: 500;
-            cursor: pointer;
-            backdrop-filter: blur(5px);
+            transition: color 0.3s;
         }
 
-        .signin-btn {
-            background-color: #ffffff;
-            color: #7928ca;
+        .nav-links a:hover {
+            color: #ff007f;
+        }
+
+        .subscribe-btn {
+            background: linear-gradient(90deg, #ff007f, #ffcc00);
+            color: #000000;
             border: none;
-            padding: 6px 16px;
-            border-radius: 4px;
-            font-weight: 600;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
             cursor: pointer;
-            transition: transform 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s;
         }
 
-        .signin-btn:hover {
+        .subscribe-btn:hover {
             transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
         }
 
-        /* Main Hero Content */
-        .hero-container {
+        /* Hero Main Section */
+        .hero-section {
             position: relative;
             z-index: 10;
             flex: 1;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            margin-bottom: 50px;
+            padding: 40px 6%;
+            max-width: 800px;
         }
 
-        .hero-content h1 {
-            font-size: 4rem;
+        .badge {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            width: max-content;
+            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .hero-section h1 {
+            font-size: 3.5rem;
             font-weight: 900;
-            max-width: 800px;
             line-height: 1.1;
             margin-bottom: 20px;
-            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(to right, #ffffff, #ffcc00, #ff007f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .hero-content p {
-            font-size: 1.5rem;
-            font-weight: 400;
-            margin-bottom: 30px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        .hero-section p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 35px;
         }
 
-        /* Membership Form */
-        .membership-form {
-            width: 100%;
-            max-width: 700px;
-        }
-
-        .membership-form h3 {
-            font-size: 1.25rem;
-            font-weight: 400;
-            margin-bottom: 20px;
-        }
-
-        .form-container {
+        /* Action Row */
+        .cta-group {
             display: flex;
-            gap: 10px;
-            justify-content: center;
-            width: 100%;
+            gap: 15px;
+            flex-wrap: wrap;
         }
 
-        .form-container input {
-            flex: 1;
-            padding: 20px;
-            background: rgba(255, 255, 255, 0.15);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            border-radius: 4px;
-            color: white;
-            font-size: 1rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .form-container input::placeholder {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .form-container input:focus {
-            outline: 2px solid #ffffff;
-        }
-
-        .form-container button {
+        .btn-main {
             background-color: #ffffff;
-            color: #0070f3;
+            color: #000000;
             border: none;
-            padding: 0 30px;
-            font-size: 1.5rem;
-            font-weight: 600;
-            border-radius: 4px;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            border-radius: 6px;
             cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: background 0.2s, transform 0.2s;
+            transition: background 0.2s;
         }
 
-        .form-container button:hover {
-            background-color: rgba(255, 255, 255, 0.9);
-            transform: translateX(2px);
+        .btn-main:hover {
+            background-color: #ffcc00;
         }
 
-        /* Responsive Design */
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 6px;
+            cursor: pointer;
+            backdrop-filter: blur(5px);
+            transition: background 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        /* Responsive Breakpoints */
         @media (max-width: 768px) {
             header {
-                padding: 20px;
+                padding: 15px 4%;
             }
-            .logo {
-                font-size: 1.8rem;
+            .nav-links {
+                display: none; /* Simplifies layout for mobile devices */
             }
-            .hero-content h1 {
-                font-size: 2.5rem;
+            .hero-section h1 {
+                font-size: 2.3rem;
             }
-            .hero-content p {
-                font-size: 1.2rem;
+            .hero-section p {
+                font-size: 1rem;
             }
-            .form-container {
+            .cta-group {
                 flex-direction: column;
-                gap: 15px;
             }
-            .form-container button {
-                padding: 15px;
-                justify-content: center;
-                font-size: 1.2rem;
+            .btn-main, .btn-secondary {
+                width: 100%;
+                text-align: center;
             }
         }
     </style>
 </head>
 <body>
 
-    <div class="overlay"></div>
+    <div class="scrim-overlay"></div>
 
     <header>
-        <div class="logo">Netflix</div>
-        <div class="nav-buttons">
-            <button class="lang-btn">English</button>
-            <button class="signin-btn">Sign In</button>
+        <div class="brand-logo">
+            <span class="jio">Jio</span><span class="hotstar">hotstar</span>
         </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Sports</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><button class="subscribe-btn">Subscribe Now</button></li>
+        </ul>
     </header>
 
-    <main class="hero-container">
-        <div class="hero-content">
-            <h1>Unlimited movies, TV shows and more</h1>
-            <p>Starts at ₹149. Cancel at any time.</p>
-            
-            <div class="membership-form">
-                <h3>Ready to watch? Enter your email to create or restart your membership.</h3>
-                <form class="form-container" onsubmit="event.preventDefault();">
-                    <input type="email" placeholder="Email address" required>
-                    <button type="submit">
-                        Get Started <span>&gt;</span>
-                    </button>
-                </form>
-            </div>
+    <main class="hero-section">
+        <div class="badge">Combined Premium</div>
+        <h1>The Ultimate Entertainment Hub</h1>
+        <p>Stream live T20 cricket matches, blockbusters, regional titles, and exclusive global series. Everything you love, powered by India's fastest network partnership.</p>
+        
+        <div class="cta-group">
+            <button class="btn-main" onclick="alert('Redirecting to plans...')">Watch Free Trial</button>
+            <button class="btn-secondary" onclick="alert('Opening active plans...')">View Combo Plans</button>
         </div>
     </main>
 
 </body>
 </html>
-
