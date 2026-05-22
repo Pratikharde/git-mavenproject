@@ -1,19 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My AWS Hosted Website</title>
+    <title>My AWS Cloud Resume</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; padding: 50px; }
+        h1 { color: #232f3e; } /* AWS Navy Blue */
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Welcome to My Website on AWS</h1>
-    </header>
-    <main>
-        <p>This page is hosted using AWS Cloud services.</p>
-    </main>
-    <footer>
-        <p>&copy; 2026 My Cloud Project</p>
-    </footer>
+    <h1>Hello, I am an AWS Certified Cloud Practitioner!</h1>
+    <p>This page is hosted on Amazon S3.</p>
 </body>
 </html>
