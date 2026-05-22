@@ -3,24 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Netflix Clone - AWS Cloud Hosting</title>
-    <link rel="stylesheet" href="style.css">
+    <title>My AWS Hosted Website</title>
 </head>
 <body>
-    <header class="hero">
-        <nav class="navbar">
-            <img src="https://wikimedia.org" class="logo" alt="Netflix Logo">
-            <button class="signin-btn">Sign In</button>
-        </nav>
-        
-        <div class="hero-content">
-            <h1>Unlimited movies, TV shows, and more.</h1>
-            <p>Watch anywhere. Cancel anytime.</p>
-            <form class="email-signup">
-                <input type="email" placeholder="Email address" required>
-                <button type="submit">Get Started</button>
-            </form>
-        </div>
+    <header>
+        <h1>Welcome to My Website on AWS</h1>
     </header>
+    <main>
+        <p>This page is hosted using AWS Cloud services.</p>
+    </main>
+    <footer>
+        <p>&copy; 2026 My Cloud Project</p>
+    </footer>
 </body>
 </html>
