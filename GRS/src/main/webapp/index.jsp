@@ -3,126 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magical Disneyland</title>
+    <title>Netflix Clone - Watch TV Shows & Movies Online</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+        /* CSS Variables and Base Styles */
+        :root {
+            --netflix-red: #e50914;
+            --dark-bg: #141414;
+            --text-white: #ffffff;
+            --gradient-overlay: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.9) 100%);
         }
-
-        body {
-            background: linear-gradient(135deg, #ff7b00, #ff0055, #8800ff, #00bfff);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            color: #fff;
-            padding: 20px;
-        }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50% }
-            50% { background-position: 100% 50% }
-            100% { background-position: 0% 50% }
-        }
-
-        .header {
-            text-align: center;
-            margin: 40px 0;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
-        }
-
-        .header h1 {
-            font-size: 4rem;
-            color: #ffeb3b;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
-
-        .header p {
-            font-size: 1.5rem;
-            margin-top: 10px;
-            color: #ffffff;
-        }
-
-        .container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 20px;
-            text-align: center;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            transition: transform 0.3s ease, background 0.3s ease;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.25);
-        }
-
-        .card h2 {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: #ffeb3b;
-        }
-
-        .card p {
-            font-size: 1.1rem;
-            line-height: 1.5;
-            color: #f1f1f1;
-        }
-
-        .card .emoji {
-            font-size: 4rem;
-            margin-bottom: 15px;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: sans-serif; background-color: var(--dark-bg); color: var(--text-white); }
+        
+        /* Navbar and Hero */
+        .navbar { position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between; padding: 20px 50px; background: rgba(0,0,0,0.7); z-index: 100; }
+        .brand-logo { color: var(--netflix-red); font-size: 2rem; font-weight: bold; text-decoration: none; }
+        .signin-btn { background-color: var(--netflix-red); color: white; padding: 6px 18px; text-decoration: none; border-radius: 4px; }
+        .hero-section { height: 85vh; background: var(--gradient-overlay), url('https://unsplash.com') center/cover; display: flex; align-items: center; padding: 0 50px; }
+        
+        /* Grid and Cards */
+        .content-container { padding: 40px 50px; margin-top: -80px; position: relative; z-index: 20; }
+        .movie-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 15px; }
+        .movie-card { aspect-ratio: 2/3; background-color: #181818; overflow: hidden; cursor: pointer; transition: transform 0.3s; }
+        .movie-card:hover { transform: scale(1.05); }
+        .movie-card img { width: 100%; height: 100%; object-fit: cover; }
+        @media(max-width: 768px) { .navbar, .content-container { padding: 20px; } }
     </style>
 </head>
 <body>
-
-    <div class="header">
-        <h1>✨ Magical Disneyland ✨</h1>
-        <p>The Happiest Place on Your Screen!</p>
-    </div>
-
-    <div class="container">
-        <!-- Attraction Card 1 -->
-        <div class="card">
-            <div class="emoji">🏰</div>
-            <h2>Cinderella's Castle</h2>
-            <p>Experience the iconic centerpiece of the magical kingdom and watch the spectacular fireworks light up the night sky.</p>
+    <header class="navbar"><a href="#" class="brand-logo">Netflix</a><a href="#" class="signin-btn">Sign In</a></header>
+    <section class="hero-section"><h1>Stranger Things</h1></section>
+    <main class="content-container">
+        <h2>Trending Now</h2>
+        <div class="movie-grid">
+            <div class="movie-card"><img src="https://unsplash.com" alt="Poster"></div>
+            <div class="movie-card"><img src="https://unsplash.com" alt="Poster"></div>
+            <div class="movie-card"><img src="https://unsplash.com" alt="Poster"></div>
         </div>
-
-        <!-- Attraction Card 2 -->
-        <div class="card">
-            <div class="emoji">🚀</div>
-            <h2>Space Mountain</h2>
-            <p>Blast off into the outer cosmos on this thrilling, high-speed indoor roller coaster adventure in the dark.</p>
-        </div>
-
-        <!-- Attraction Card 3 -->
-        <div class="card">
-            <div class="emoji">🐘</div>
-            <h2>Dumbo Flight</h2>
-            <p>Take control of your very own flying elephant and soar high above the park while enjoying sweeping views.</p>
-        </div>
-
-        <!-- Attraction Card 4 -->
-        <div class="card">
-            <div class="emoji">🍕</div>
-            <h2>Main Street Eats</h2>
-            <p>Indulge in sweet Mickey-shaped treats, delicious churros, and fun character dining experiences all day long.</p>
-        </div>
-    </div>
-
+    </main>
 </body>
 </html>
